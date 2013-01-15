@@ -2,5 +2,17 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/guava-13.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/org.eclipse.core.contenttype_3.2.100.v20070319.jar"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/org.eclipse.core.jobs_3.3.0.v20070423.jar"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/org.eclipse.core.resources_3.3.0.v20070604.jar"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/org.eclipse.core.runtime_3.3.100.v20070530.jar"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/org.eclipse.equinox.common_3.3.0.v20070426.jar"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/org.eclipse.equinox.preferences_3.2.100.v20070522.jar"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/org.eclipse.jdt.core_3.6.1.v_A68_R36x.jar"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/org.eclipse.jdt_3.6.1.v201009090800.jar"/>
+	<classpathentry kind="lib" path="/home/buse/git/examplary/Examplary/lib/org.eclipse.osgi_3.3.0.v20070530.jar"/>
+	<classpathentry kind="lib" path="lib/Minimize.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
