@@ -33,6 +33,8 @@ public class CFG implements Iterable<CFGNode> {
 	CFGNode entry;
 	MethodDeclaration methodSig;
 
+	Map<Statement, CFGNode> stmtNodeMap = new HashMap<>();
+	
 	public static CFG buildCFG(MethodDeclaration repOk) throws UnknownExpressionException {
 		CFG temp = new CFG();
 		temp.createCFG(repOk);
@@ -50,10 +52,12 @@ public class CFG implements Iterable<CFGNode> {
 		entry = makeNode(statements, null, null, null);
 	}
 
-	Map<Statement, CFGNode> stmtNodeMap = new HashMap<>();
 
+	
+	
 	private CFGNode makeNode(List<Statement> statements, CFGNode returnTo, CFGNode loopExit,
 			CFGNode switchHead) throws UnknownExpressionException {
+		
 		if (statements.isEmpty()) {
 			if (returnTo != null)
 				return returnTo;
@@ -68,6 +72,7 @@ public class CFG implements Iterable<CFGNode> {
 		if (result != null)
 			return result;
 
+		//why get rest of the list
 		List<Statement> rest;
 
 		if (statements.size() == 1) {
@@ -94,6 +99,7 @@ public class CFG implements Iterable<CFGNode> {
 
 			CFGNode thenBlockNode = makeNode(Tools.makeList(ifstmt.getThenStatement()), afterNode,
 					loopExit, switchHead);
+			
 			ThenBranchNode thenNode = new ThenBranchNode();
 			thenNode.setBranchHead(ifnode);
 			thenNode.setNext(thenBlockNode);
@@ -325,6 +331,9 @@ public class CFG implements Iterable<CFGNode> {
 		return stmtnode;
 	}
 
+	
+	
+	
 	public CFGNode getEntry() {
 		return entry;
 	}

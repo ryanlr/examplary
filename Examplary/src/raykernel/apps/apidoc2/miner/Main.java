@@ -26,7 +26,9 @@ import raykernel.lang.parse.ClassDeclaration;
 public class Main {
 
 	public static void main(String[] args) throws UnknownExpressionException {
-		String rootPath = args[0];
+		//String rootPath = args[0];
+		
+		String rootPath = "/home/xiaoran/java_projects/Zypr-Reference-Client---Java/";
 		File rootFile = new File(rootPath);
 
 		Miner miner = new Miner();

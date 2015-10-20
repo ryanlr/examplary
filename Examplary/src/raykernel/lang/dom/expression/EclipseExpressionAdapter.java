@@ -225,6 +225,7 @@ public class EclipseExpressionAdapter {
 
 	public static Condition translateCondition(org.eclipse.jdt.core.dom.Expression expression)
 			throws UnknownExpressionException {
+		
 		Expression e;
 
 		try {

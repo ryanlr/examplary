@@ -23,21 +23,31 @@ import raykernel.lang.dom.naming.Type;
 import raykernel.lang.dom.statement.VariableDeclarationStatement;
 
 public class EclipseCFGParser {
+	
+	
 	public List<ClassDeclaration> parse(String source)
 			throws UnknownExpressionException {
+		
+		//create a parser and set source code 
 		ASTParser parser = ASTParser.newParser(AST.JLS3);
 		parser.setSource(source.toCharArray());
 		CompilationUnit unit = (CompilationUnit) parser.createAST(null);
+		
+		//get all TypeDeclaration - class / interface declaration
 		List<TypeDeclaration> types = TypeDecExtractor.getTypeDefs(unit);
 
-		List<ClassDeclaration> ret = new LinkedList<ClassDeclaration>();
+		List<ClassDeclaration> result = new LinkedList<ClassDeclaration>();
 
+		
 		for (TypeDeclaration type : types) {
+			
 			ClassDeclaration cd = translateTypeDec(type);
 
+			//all method declaration 
 			for (MethodDeclaration method : MethodExtractor.getMethods(type)) {
 				MethodSignature methodSig = translateMethodDec(method);
-				CFG cfg = CFG.buildCFG(method);
+				
+				CFG cfg = CFG.buildCFG(method);//use method declaration sub-tree to build CFG
 
 				// **** Printing DOT ****
 				// CFGToDot toDot = new CFGToDot();
@@ -48,6 +58,7 @@ public class EclipseCFGParser {
 				cd.addMethod(methodSig);
 			}
 
+			//all field declaration
 			for (FieldDeclaration fd : type.getFields()) {
 				Type t = new Type(fd.getType().toString());
 
@@ -62,10 +73,11 @@ public class EclipseCFGParser {
 					cd.addFieldDec(vs);
 				}
 			}
-			ret.add(cd);
+			
+			result.add(cd);
 		}
 
-		return ret;
+		return result;
 	}
 
 	private MethodSignature translateMethodDec(MethodDeclaration method) {
